@@ -196,3 +196,197 @@ if (baju === "Putih") { // => Kalau tipe datanya bukan boolean kita harus pakai 
 } else {
     console.log("Baju kotor");
 }
+
+
+
+/**
+ * 
+ * ini merupakan declaration dari sebuah function sederhana
+ * declaration function di tulis dengan keywords function namaFunction()
+ * Jika function tidak memiliki keywords returns dia merupakan void function
+ * yang berarti function tersebut mengembalikan nilai apapun ketika digunakan
+ * age = 23 itu merupakan initialization parameter dengan nilai awal atau deafult value,
+ * ketika kita melakukan pemanggilaan function tanpa mengirim parameter age, maka secara default
+ * age itu bernilai 23 dan jika kita memasukan nilai parameter ke 2 nilai age akan sesuai berdasarkan
+ * parameter kedua yang dikirim dari pemanggilan function
+ * 
+ * @returns String
+ */
+
+function greet(name, age = 21) {
+    // Penggunan string literal atau ` ketika ingin menggunakan variable/parameter harus dengan ${}
+    return `Hello, ${name}. My age is ${age} yo`;
+}
+
+const greeting = greet("Krisna", 22); // => Jika function memiliki keywors return didalamnya bisa menggunakan variable
+
+console.log(greeting);
+
+console.log(greet("Krisna")); // => Function bisa digunakan langsung tanpa variable seperti contoh berikut
+
+/**
+ * 
+ * * Perkalian
+ * / Pembagian
+ * + Penjumlahan
+ * - Pengurangan
+ * Satu function hanya bisa melakukan satu return
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ */
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(5, 3)); // => Output selalu a + b dalam kasus ini argument nya bernilai 5 dan 3 hasilnya 8
+
+function fizzBuzz(number) {
+    if (number % 2 === 0) {
+        return "Fizz";
+    }
+
+    if (number % 3 === 0) {
+        return "Buzz";
+    }
+
+    if (number % 5 === 0) {
+        return "FizzBuzz";
+    }
+
+    return "Failed";
+}
+
+console.log(fizzBuzz(2)); // => Output Fizz
+console.log(fizzBuzz(3)); // => Output Buzz
+console.log(fizzBuzz(5)); // => Output FizzBuzz
+console.log(fizzBuzz(7)); // => Output Failed
+
+// Fungsi anonim
+const greetAnon = function(name) {
+    return `Hello, ${name} from anonymous function`;
+}
+
+console.log(greetAnon("Krisna"));
+
+// Arrow function
+const greetArrow = (name) => `Hello, ${name} from Arrow Function`;
+
+console.log(greetArrow("Azifa"));
+
+/**
+ * class itu didefinisikan dengan keywords class
+ * class juga memiliki constructor, dimana constructor akan selalu diakses di awal ketika
+ * kita melakukan pembuatan object baru dari class dengan keywords new Car("Toyota", "Camry", 2020)
+ * pada dalam constructor kita menggunakan keywords this. untuk mendefinisikan sebuah property,
+ * didalam object. Mirip dengan tipe data object lainnya class juga punya property
+ */
+class Car {
+    constructor(name, brand, year) {
+        this._name = name;
+        this._brand = brand;
+        this._year = year;
+    }
+
+    information() {
+        return `${this.name} have brand from ${this._brand} and build in ${this._year}`;
+    }
+
+    // ini adalah setter untuk merubah nilai dari sebuah property
+    setName(name) {
+        this._name = name;
+    }
+
+    // ini adalah getter untuk mengambil data dari sebuah property
+    getName() {
+        return this.name;
+    }
+
+    // ini merupakan contoh penggunaan setters dengan keywords set
+    set name(value) {
+        if (value !== " ") {
+            this._name = value;
+        } else {
+            console.log("the value must be not empty string");
+        }
+    }
+
+    // ini merupakan contoh penggunaan getters dengan keywords get
+    get name() {
+        return this._name;
+    }
+}
+
+const car = new Car("Toyota", "Camry", 2020);
+console.log(car.information());
+// car.setName("Daihatsu");
+car.name = "Daihatsu"; // Menggunakan setter untuk merubah data dari property yang ada di class   
+console.log(car.information());
+console.log(car.name);
+
+
+/**
+ * Animal merupakan sebuah class yang memiliki property name dan method speak
+ */
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+/**
+ * Dog merupakan sebuah children class yang mewarisi semua yang ada di dalam class Animal,
+ * baik itu property maupun method
+ */
+class Dog extends Animal {
+    speak() {
+        console.log("What the dog do'in");
+    }
+}
+
+const dog = new Dog("Holy");
+dog.speak();
+
+
+class Cat extends Animal {
+    constructor(name, color) {
+        super(name)
+        this.color = color;
+    }
+
+    speak() {
+        super.speak();
+        console.log(`${this.name} meows.`);
+    }
+}
+
+const cat = new Cat("Whisker", "Gray")
+cat.speak();
+
+
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+
+    static multiply(a, b) {
+        return a * b;
+    }
+}
+
+console.log(MathUtil.add(2, 2)); // Output 4
+console.log(MathUtil.multiply(5, 5)); // Output 25
+
+/**
+ * 
+ * Naming Convension Class biasanya menggunakan PascalCase atau sebagai contoh LoanDisbursement
+ * Naming Convension variable biasanya itu camelCase atau variableName
+ * Naming Convension function biasanya itu camelCase atau functionName
+ * 
+ */
+
+
