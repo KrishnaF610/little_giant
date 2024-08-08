@@ -4,6 +4,8 @@ CREATE DATABASE sample_database;
 # ini untuk drop Database
 DROP DATABASE sample_database;
 
+USE sample_database;
+
 CREATE TABLE students (
     id bigint PRIMARY KEY AUTO_INCREMENT,
     name varchar(191) not null,
